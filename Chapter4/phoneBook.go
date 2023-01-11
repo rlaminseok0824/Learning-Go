@@ -150,6 +150,13 @@ func list() {
 	}
 }
 
+func listReverse() {
+	sort.Sort(sort.Reverse(PhoneBook(data)))
+	for _, v := range data {
+		fmt.Println(v)
+	}
+}
+
 func matchTel(s string) bool {
 	t := []byte(s)
 	re := regexp.MustCompile(`\d+$`)
