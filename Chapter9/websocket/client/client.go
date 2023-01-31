@@ -39,6 +39,7 @@ func main() {
 	PATH = arguments[2]
 	fmt.Println("Connecting to:", SERVER, "at", PATH)
 
+	//다음과 같이 하여 interrupt 유닉스 인터럽트를 처리한다.
 	interrupt := make(chan os.Signal, 1)
 	signal.Notify(interrupt, os.Interrupt)
 
@@ -73,7 +74,7 @@ func main() {
 			log.Println("Please give me input!", TIMESWAIT)
 			TIMESWAIT++
 			if TIMESWAIT > TIMESWAITMAX {
-				syscall.Kill(syscall.Getpid(), syscall.SIGINT)
+				syscall.Kill(syscall.Getpid(), syscall.SIGINT) // Go 코드로 인터럽트 시그널을 프로그램으로 보낸다.
 			}
 		case <-done:
 			return
@@ -87,7 +88,7 @@ func main() {
 			go getInput(input)
 		case <-interrupt:
 			log.Println("Caught interrupt signal - quitting!")
-			err := c.WriteMessage(websocket.CloseMessage, websocket.FormatCloseMessage(websocket.CloseNormalClosure, ""))
+			err := c.WriteMessage(websocket.CloseMessage, websocket.FormatCloseMessage(websocket.CloseNormalClosure, "")) //연결을 닫기전 서버로 전송해 올바른 종료
 			if err != nil {
 				log.Println("Write close error:", err)
 				return
