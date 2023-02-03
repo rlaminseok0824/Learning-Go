@@ -1,0 +1,16 @@
+version: '3.9'
+services:
+  postgres:
+    image: postgres
+    container_name: postgredb
+    environment:
+      POSTGRES_USER: minseok
+      POSTGRES_PASSWORD: pass
+      POSTGRES_DB: restapi
+    volumes:
+      - postgresql
+    ports:
+      - "5432:5432"
+volumes:
+  postgres_data:
+    driver: local
