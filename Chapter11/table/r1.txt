@@ -1,0 +1,17 @@
+goos: linux
+goarch: amd64
+cpu: 12th Gen Intel(R) Core(TM) i5-12500H
+BenchmarkBuffer4Create-16     	 1464750	       793.1 ns/op	     304 B/op	       5 allocs/op
+BenchmarkBuffer8Create-16     	 1599649	       719.7 ns/op	     304 B/op	       5 allocs/op
+BenchmarkBuffer16Create-16    	 1741322	       704.2 ns/op	     304 B/op	       5 allocs/op
+BenchmarkRead/10.txt-1-16     	     100	  11638979 ns/op	     168 B/op	       6 allocs/op
+BenchmarkRead/10.txt-16-16    	     220	   5358064 ns/op	     200 B/op	       6 allocs/op
+BenchmarkRead/10.txt-96-16    	     175	   6367586 ns/op	     440 B/op	       6 allocs/op
+BenchmarkRead/1000.txt-1-16   	       6	 193659166 ns/op	     168 B/op	       6 allocs/op
+BenchmarkRead/1000.txt-16-16  	      48	  23252577 ns/op	     200 B/op	       6 allocs/op
+BenchmarkRead/1000.txt-96-16  	     153	   8151205 ns/op	     440 B/op	       6 allocs/op
+BenchmarkRead/5k.txt-1-16     	       2	 926006694 ns/op	     168 B/op	       6 allocs/op
+BenchmarkRead/5k.txt-16-16    	      10	 126249119 ns/op	     200 B/op	       6 allocs/op
+BenchmarkRead/5k.txt-96-16    	      45	  23281802 ns/op	     440 B/op	       6 allocs/op
+PASS
+ok  	command-line-arguments	29.272s
